@@ -5,8 +5,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
 
-public class Assessment {
+
+public class AssessmentTests {
 	
 	
 	/**
@@ -17,6 +19,8 @@ public class Assessment {
 	 * @param driver - WebDriver of user's choice
 	 * @return void
 	 */
+	
+	@Test
 	public static void createAccount(String username, String password, String url, WebDriver driver) {
 		// Opens website page
 		driver.get(url);
@@ -43,6 +47,7 @@ public class Assessment {
 	 * 
 	 * @return void
 	 */
+	@Test
 	public static String logIn(String username, String password, WebDriver driver) {
 		//Find log in button and click it
 		driver.findElement(By.id("login2")).click();
@@ -67,71 +72,10 @@ public class Assessment {
 	 * 
 	 * @return void
 	 */
+	@Test
 	public static void logOut(FirefoxDriver driver) {
 		driver.findElement(By.id("logout2")).click();
 	}
 	
-	/**
-	 * Adds items to user's cart
-	 * 
-	 * @param username - User's inputed name for https://www.demoblaze.com/
-	 * @param password - User's inputed password for https://www.demoblaze.com/
-	 * @param driver - WebDriver of user's choice
-	 * 
-	 * @return void
-	 */
-	public static void addToCart() {
-		
-	}
-	
-	/**
-	 * Deletes items in user's cart
-	 * 
-	 * @param username - User's inputed name for https://www.demoblaze.com/
-	 * @param password - User's inputed password for https://www.demoblaze.com/
-	 * @param driver - WebDriver of user's choice
-	 * 
-	 * @return void
-	 */
-	public static void deleteFromCart() {
-		
-	}
-	
-	/**
-	 * Checks the number of items in user's cart
-	 * 
-	 * @param username - User's inputed name for https://www.demoblaze.com/
-	 * @param password - User's inputed password for https://www.demoblaze.com/
-	 * @param driver - WebDriver of user's choice
-	 * 
-	 * @return number of items in cart
-	 */
-	public static void numItemsInCart() {
-		
-	}
-
-	
-	public static void main(String[] args) {
-		String username = "Smokey";
-		String password = "theBear";
-		String url = "https://www.demoblaze.com";
-		
-		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		
-		//Create driver
-		
-		FirefoxDriver driver = new FirefoxDriver();
-		
-		//driver.get("https://www.demoblaze.com");
-
-		createAccount(username, password, url, driver);
-		//logIn(username, password, driver);
-		
-		//logOut(driver);
-		
-		//driver.close();
-
-
-	}
 
 }
