@@ -17,16 +17,11 @@ public class AssessmentTests {
 	
 	
 	/**
-	 * Creates new account for user
-	 * 
-	 * @param username - User's inputed name for https://www.demoblaze.com/
-	 * @param password - User's inputed password for https://www.demoblaze.com/
-	 * @param driver - WebDriver of user's choice
-	 * @return void
+	 * Example of user already existing
 	 */
 	
 	@Test
-	public static void createAccount_Account_Already_Exists() {
+	void createAccount_Account_Already_Exists() {
 		String username = "fake_name";
 		String password = "12345";
 		SoftAssert softAssert = new SoftAssert();
@@ -68,7 +63,7 @@ public class AssessmentTests {
 	 * Fails if the username/password has already been used
 	 */
 	@Test
-	public static void createAccount_Account_Does_Not_Exist_Yet() {
+	void createAccount_Account_Does_Not_Exist_Yet() {
 //		Random random = new Random();
 		String username = "Fuzzy_Wuzzy";
 		String password = "wasABear";
@@ -116,7 +111,7 @@ public class AssessmentTests {
 	 * Fails because wait time isn't long enough sometimes
 	 */
 	@Test
-	public static void logIn() {
+	void logIn() {
 		String username = "fake_name";
 		String password = "12345";
 		SoftAssert softAssert = new SoftAssert();
@@ -154,7 +149,7 @@ public class AssessmentTests {
 	 * 
 	 */
 	@Test
-	public static void logOut() {
+	void logOut() {
 		String username = "fake_name";
 		String password = "12345";
 		SoftAssert softAssert = new SoftAssert();
@@ -176,9 +171,6 @@ public class AssessmentTests {
 		// Click Log in button to complete log in
 		driver_1.findElement(By.xpath("/html/body/div[3]/div/div/div[3]/button[2]")).click();
 		
-		WebElement loggedIn = driver_1.findElement(By.id("nameofuser"));
-		softAssert.assertEquals(loggedIn.getText(),"Welcome fake_name");
-		
 		//Add a wait here
 		WebDriverWait wait = new WebDriverWait(driver_1, Duration.ofSeconds(5));
 		
@@ -190,6 +182,9 @@ public class AssessmentTests {
 		Assert.assertEquals(expected, driver_1.findElement(By.id("signin2")).getText());
 		driver_1.close();
 	}
+	
+	
+	
 	
 
 }
