@@ -5,7 +5,7 @@
     <classes>
       <class name="assessment.AssessmentTests">
         <methods>
-          <include name="logOut"/>
+          <include name="createAccount_Account_Does_Not_Exist_Yet"/>
         </methods>
       </class> <!-- assessment.AssessmentTests -->
     </classes>
