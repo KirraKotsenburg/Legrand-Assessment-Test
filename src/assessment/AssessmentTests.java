@@ -1,6 +1,9 @@
 package assessment;
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +27,6 @@ public class AssessmentTests {
 	void createAccount_Account_Already_Exists() {
 		String username = "fake_name";
 		String password = "12345";
-		SoftAssert softAssert = new SoftAssert();
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
@@ -67,7 +69,6 @@ public class AssessmentTests {
 //		Random random = new Random();
 		String username = "Fuzzy_Wuzzy";
 		String password = "wasABear";
-		SoftAssert softAssert = new SoftAssert();
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
@@ -113,7 +114,6 @@ public class AssessmentTests {
 	void createAccount_Cancel_Create_Account() {
 		String username = "fake_name";
 		String password = "12345";
-		SoftAssert softAssert = new SoftAssert();
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
@@ -151,7 +151,6 @@ public class AssessmentTests {
 	void logIn() {
 		String username = "fake_name";
 		String password = "12345";
-		SoftAssert softAssert = new SoftAssert();
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
@@ -189,7 +188,6 @@ public class AssessmentTests {
 	void logOut() {
 		String username = "fake_name";
 		String password = "12345";
-		SoftAssert softAssert = new SoftAssert();
 		String expected = "Sign up";
 		
 		// Set up Webdriver
@@ -225,13 +223,11 @@ public class AssessmentTests {
 	}
 	
 	/**
-	 * Bug found when trying to access items on homepage they cannot be found through
-	 * linkText or xpath, you will get an NoSuchElementException for:
-	 * Samsung galaxy s6, Nexus 6, and Nokia lumia 1520
+	 * 
 	 * 
 	 */
 	@Test
-	void addItems() {
+	void add_Two_Items_to_Cart() {
 		//int addedItems = 0;
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
@@ -290,5 +286,73 @@ public class AssessmentTests {
 		driver_5.close();
 	}
 
+	/**
+	 * 
+	 * 
+	 */
+	@Test
+	void delete_Two_Items_from_Cart() {
+
+		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
+		FirefoxDriver driver_5 = new FirefoxDriver();
+		
+		driver_5.get("https://www.demoblaze.com/index.html");
+		driver_5.manage().window().maximize();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Add Samsung Galaxy s6 to cart
+		driver_5.findElement(By.linkText("Samsung galaxy s6")).click();
+		
+		// In Galaxy s6 page I want to click add to cart
+		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		
+		// Creating a wait
+		WebDriverWait wait = new WebDriverWait(driver_5, Duration.ofSeconds(2));
+		
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		// Accept product added alert
+		Alert alert = driver_5.switchTo().alert();
+		alert.accept();
+			
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+		// Click home button
+		driver_5.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+
+		// Add Nokia Lumia 1520 to cart
+		driver_5.findElement(By.linkText("Nokia lumia 1520")).click();
+		// In Nokia Lumia page I want to click add to cart
+		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		alert = driver_5.switchTo().alert();
+		alert.accept();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Click cart button
+		driver_5.findElement(By.id("cartur")).click();
+		
+		// Check that the items are in cart
+		
+		driver_5.findElement(By.linkText("Delete")).click();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver_5.findElement(By.cssSelector("tr.success:nth-child(2) > td:nth-child(4) > a:nth-child(1)")).click();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		List<WebElement> empty = Collections.<WebElement>emptyList();
+		
+		Assert.assertEquals(driver_5.findElements(By.linkText("Samsung galaxy x6")), empty);
+		Assert.assertEquals(driver_5.findElements(By.linkText("Nokia lumia 1520")), empty);
+		driver_5.close();
+	}
+	
 
 }
