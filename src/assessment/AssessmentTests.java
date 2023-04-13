@@ -1,6 +1,7 @@
 package assessment;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -338,21 +339,105 @@ public class AssessmentTests {
 		// Click cart button
 		driver_5.findElement(By.id("cartur")).click();
 		
-		// Check that the items are in cart
-		
+
+		// Find delete button
 		driver_5.findElement(By.linkText("Delete")).click();
 		
 		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Find second items delete button (had to use different By.)
 		driver_5.findElement(By.cssSelector("tr.success:nth-child(2) > td:nth-child(4) > a:nth-child(1)")).click();
 		
 		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		List<WebElement> empty = Collections.<WebElement>emptyList();
 		
-		Assert.assertEquals(driver_5.findElements(By.linkText("Samsung galaxy x6")), empty);
+		//Probably not actually proving anything with the link text thing, considering these aren't link texts
+		Assert.assertEquals(driver_5.findElements(By.linkText("Samsung galaxy s6")), empty);
 		Assert.assertEquals(driver_5.findElements(By.linkText("Nokia lumia 1520")), empty);
 		driver_5.close();
 	}
 	
+	/**
+	 * 
+	 * 
+	 */
+	@Test
+	void number_Of_Items_In_Cart() {
+		int numOfItems = 0;
+		int expected = 2;
+		// Make a method called getProducts
+		List<String> products = new ArrayList<String>();
+		products.add("Samsung galaxy s6");
+		products.add("Nokia lumia 1520");
+		products.add("Nexus 6");
+		products.add("Samsung galaxy s7");
+		products.add("Iphone 6 32gb");
+		products.add("Sony xperia z5");
+		products.add("HTC One M9");
+		products.add("Sony vaio i5");
+		products.add("Sony vaio i7");
+		products.add("Apple monitor 24");
+		products.add("MacBook air");
+		products.add("Dell i7 8gb");
+		products.add("2017 Dell 15.6 Inch");
+		products.add("ASUS Full HD");
+		products.add("MacBook Pro");
+		
+		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
+		FirefoxDriver driver_5 = new FirefoxDriver();
+		
+		driver_5.get("https://www.demoblaze.com/index.html");
+		driver_5.manage().window().maximize();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Add Samsung Galaxy s6 to cart
+		driver_5.findElement(By.linkText("Samsung galaxy s6")).click();
+		
+		// In Galaxy s6 page I want to click add to cart
+		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		
+		// Creating a wait
+		WebDriverWait wait = new WebDriverWait(driver_5, Duration.ofSeconds(2));
+		
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		// Accept product added alert
+		Alert alert = driver_5.switchTo().alert();
+		alert.accept();
+			
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+		// Click home button
+		driver_5.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+
+		// Add Nokia Lumia 1520 to cart
+		driver_5.findElement(By.linkText("Nokia lumia 1520")).click();
+		// In Nokia Lumia page I want to click add to cart
+		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		alert = driver_5.switchTo().alert();
+		alert.accept();
+		
+		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Click cart button
+		driver_5.findElement(By.id("cartur")).click();
+		
+		List<WebElement> cart = driver_5.findElements(By.className("success"));
+		
+		for(WebElement item : cart) {
+			if(products.contains(item.getText()));
+				numOfItems++;
+		}
+		
+		Assert.assertEquals(numOfItems, expected);
+		driver_5.close();
+	}
 
 }
