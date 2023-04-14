@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Kirra\AppData\Local\Temp\testng-eclipse-2138521191\testng-customsuite.xml</span>
+                    <span>C:\Users\Kirra\AppData\Local\Temp\testng-eclipse-1905579999\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,31 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">9 methods, 3 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="delete_One_Item_from_Cart_With_Two_Items">delete_One_Item_from_Cart_With_Two_Items</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="delete_Two_Items_from_Cart">delete_Two_Items_from_Cart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="number_Of_Items_In_Cart">number_Of_Items_In_Cart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +128,32 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="number_Of_Items_In_Cart">number_Of_Items_In_Cart</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="add_Two_Items_to_Cart">add_Two_Items_to_Cart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="createAccount_Account_Already_Exists">createAccount_Account_Already_Exists</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="createAccount_Account_Does_Not_Exist_Yet">createAccount_Account_Does_Not_Exist_Yet</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="createAccount_Cancel_Create_Account">createAccount_Cancel_Create_Account</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="logIn">logIn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="assessment.AssessmentTests" class="method navigator-link" hash-for-method="logOut">logOut</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -119,6 +168,147 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">assessment.AssessmentTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="delete_One_Item_from_Cart_With_Two_Items">
+                  </a> <!-- delete_One_Item_from_Cart_With_Two_Items -->
+                  <span class="method-name">delete_One_Item_from_Cart_With_Two_Items</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [1] but found [2]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at assessment.AssessmentTests.delete_One_Item_from_Cart_With_Two_Items(AssessmentTests.java:448)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="delete_Two_Items_from_Cart">
+                  </a> <!-- delete_Two_Items_from_Cart -->
+                  <span class="method-name">delete_Two_Items_from_Cart</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at assessment.AssessmentTests.delete_Two_Items_from_Cart(AssessmentTests.java:361)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="number_Of_Items_In_Cart">
+                  </a> <!-- number_Of_Items_In_Cart -->
+                  <span class="method-name">number_Of_Items_In_Cart</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [2] but found [1]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at assessment.AssessmentTests.number_Of_Items_In_Cart(AssessmentTests.java:517)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -127,9 +317,44 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="number_Of_Items_In_Cart">
-                  </a> <!-- number_Of_Items_In_Cart -->
-                  <span class="method-name">number_Of_Items_In_Cart</span>
+                  <a name="add_Two_Items_to_Cart">
+                  </a> <!-- add_Two_Items_to_Cart -->
+                  <span class="method-name">add_Two_Items_to_Cart</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAccount_Account_Already_Exists">
+                  </a> <!-- createAccount_Account_Already_Exists -->
+                  <span class="method-name">createAccount_Account_Already_Exists</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAccount_Account_Does_Not_Exist_Yet">
+                  </a> <!-- createAccount_Account_Does_Not_Exist_Yet -->
+                  <span class="method-name">createAccount_Account_Does_Not_Exist_Yet</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAccount_Cancel_Create_Account">
+                  </a> <!-- createAccount_Cancel_Create_Account -->
+                  <span class="method-name">createAccount_Cancel_Create_Account</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logIn">
+                  </a> <!-- logIn -->
+                  <span class="method-name">logIn</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logOut">
+                  </a> <!-- logOut -->
+                  <span class="method-name">logOut</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +362,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Kirra\AppData\Local\Temp\testng-eclipse-2138521191\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Kirra\AppData\Local\Temp\testng-eclipse-1905579999\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,11 +371,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;assessment.AssessmentTests&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;number_Of_Items_In_Cart&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- assessment.AssessmentTests --&gt;
+      &lt;class name=&quot;assessment.AssessmentTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -190,16 +411,48 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(9);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'number_Of_Items_In_Cart')
+data.setCell(0, 1, 'add_Two_Items_to_Cart')
 data.setCell(0, 2, 'assessment.AssessmentTests')
-data.setCell(0, 3, 15500);
+data.setCell(0, 3, 15706);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'delete_One_Item_from_Cart_With_Two_Items')
+data.setCell(1, 2, 'assessment.AssessmentTests')
+data.setCell(1, 3, 12363);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'delete_Two_Items_from_Cart')
+data.setCell(2, 2, 'assessment.AssessmentTests')
+data.setCell(2, 3, 12303);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'number_Of_Items_In_Cart')
+data.setCell(3, 2, 'assessment.AssessmentTests')
+data.setCell(3, 3, 11201);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'logOut')
+data.setCell(4, 2, 'assessment.AssessmentTests')
+data.setCell(4, 3, 10760);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'logIn')
+data.setCell(5, 2, 'assessment.AssessmentTests')
+data.setCell(5, 3, 10697);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'createAccount_Account_Does_Not_Exist_Yet')
+data.setCell(6, 2, 'assessment.AssessmentTests')
+data.setCell(6, 3, 9603);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'createAccount_Account_Already_Exists')
+data.setCell(7, 2, 'assessment.AssessmentTests')
+data.setCell(7, 3, 9376);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'createAccount_Cancel_Create_Account')
+data.setCell(8, 2, 'assessment.AssessmentTests')
+data.setCell(8, 3, 9200);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -214,28 +467,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">7 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">assessment.AssessmentTests</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">createAccount_Account_Does_Not_Exist_Yet</span>
-                <br/>
-                <span class="ignored-method-name">delete_Two_Items_from_Cart</span>
-                <br/>
-                <span class="ignored-method-name">logIn</span>
-                <br/>
-                <span class="ignored-method-name">add_Two_Items_to_Cart</span>
-                <br/>
-                <span class="ignored-method-name">createAccount_Account_Already_Exists</span>
-                <br/>
-                <span class="ignored-method-name">logOut</span>
-                <br/>
-                <span class="ignored-method-name">createAccount_Cancel_Create_Account</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -246,8 +480,46 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">assessment.AssessmentTests</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">number_Of_Items_In_Cart</span>
+                <span class="method-name">add_Two_Items_to_Cart</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createAccount_Account_Already_Exists</span>
+                <span class="method-start">15708 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createAccount_Account_Does_Not_Exist_Yet</span>
+                <span class="method-start">25086 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createAccount_Cancel_Create_Account</span>
+                <span class="method-start">34691 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">delete_One_Item_from_Cart_With_Two_Items</span>
+                <span class="method-start">43893 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">delete_Two_Items_from_Cart</span>
+                <span class="method-start">56260 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logIn</span>
+                <span class="method-start">68568 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logOut</span>
+                <span class="method-start">79266 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">number_Of_Items_In_Cart</span>
+                <span class="method-start">90028 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

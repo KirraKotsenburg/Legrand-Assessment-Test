@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -14,11 +15,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 
 public class AssessmentTests {
-	
 	
 	/**
 	 * Example of user already existing
@@ -31,35 +30,33 @@ public class AssessmentTests {
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_2 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
 		// Opens website page
-		driver_2.get("https://www.demoblaze.com/index.html");
+		driver.get("https://www.demoblaze.com/index.html");
 		
 		// Find sign up and click button
-		driver_2.findElement(By.id("signin2")).click();
+		driver.findElement(By.id("signin2")).click();
 		
 		// types in username and password
-		driver_2.findElement(By.id("sign-username")).sendKeys(username);
-		driver_2.findElement(By.id("sign-password")).sendKeys(password);
+		driver.findElement(By.id("sign-username")).sendKeys(username);
+		driver.findElement(By.id("sign-password")).sendKeys(password);
 		
 		//clicks sign up button to finalize
-		driver_2.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[2]")).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver_2, Duration.ofSeconds(2));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		
 		wait.until(ExpectedConditions.alertIsPresent());
-
-		Alert alert = driver_2.switchTo().alert();
-
-		String message = alert.getText();
-		alert.accept();
-		System.out.println(message);
-		Assert.assertEquals(message, "This user already exist.");
-		driver_2.close();
-		// "This user already exist."
-		// "Sign up successful."
 		
+		Alert alert = driver.switchTo().alert();
+		//Get pop up alert's message
+		String message = alert.getText();
+		//Accept alert
+		alert.accept();
+		//Check that the messsage matches expected
+		Assert.assertEquals(message, "This user already exist.");
+		driver.close();	
 	}
 	
 	/**
@@ -67,44 +64,42 @@ public class AssessmentTests {
 	 */
 	@Test
 	void createAccount_Account_Does_Not_Exist_Yet() {
-//		Random random = new Random();
-		String username = "Fuzzy_Wuzzy";
-		String password = "wasABear";
+		Random random = new Random();
+		
+		String username = random.ints(0, 100000).toString();
+		String password = random.ints(0, 100000).toString();
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_3 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
 		// Opens website page
-		driver_3.get("https://www.demoblaze.com/index.html");
+		driver.get("https://www.demoblaze.com/index.html");
 		
 		
 		// Find sign up and click button
-		driver_3.findElement(By.id("signin2")).click();
+		driver.findElement(By.id("signin2")).click();
 		
 		// types in username and password
-		driver_3.findElement(By.id("sign-username")).sendKeys(username);
-		driver_3.findElement(By.id("sign-password")).sendKeys(password);
+		driver.findElement(By.id("sign-username")).sendKeys(username);
+		driver.findElement(By.id("sign-password")).sendKeys(password);
 		
 		//clicks sign up button to finalize
-		driver_3.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[2]")).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver_3, Duration.ofSeconds(2));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		
 		wait.until(ExpectedConditions.alertIsPresent());
 
-		Alert alert = driver_3.switchTo().alert();
-
+		Alert alert = driver.switchTo().alert();
+		//Get alert message
 		String message = alert.getText();
+		//Accept alert
 		alert.accept();
-		System.out.println(message);
+		//Check that pop up message says successful
 		Assert.assertEquals(message, "Sign up successful." );
 		
-		//driver_2.manage().deleteAllCookies();
-
-		driver_3.close();
-		// "This user already exist."
-		// "Sign up successful."	
+		driver.close();	
 	}
 	
 	/**
@@ -118,30 +113,27 @@ public class AssessmentTests {
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_4 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
 		// Opens website page
-		driver_4.get("https://www.demoblaze.com/index.html");
+		driver.get("https://www.demoblaze.com/index.html");
 		
 		// Find sign up and click button
-		driver_4.findElement(By.id("signin2")).click();
+		driver.findElement(By.id("signin2")).click();
 		
 		// types in username and password
-		driver_4.findElement(By.id("sign-username")).sendKeys(username);
-		driver_4.findElement(By.id("sign-password")).sendKeys(password);
+		driver.findElement(By.id("sign-username")).sendKeys(username);
+		driver.findElement(By.id("sign-password")).sendKeys(password);
 		
 		//clicks cancel button to exit sign up
-		driver_4.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[2]/div/div/div[3]/button[1]")).click();
 		
 		// Wait for
-		driver_4.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		//Check that homepage has not been updated with "Welcome 'user'" icon in top right
+		Assert.assertTrue(driver.findElement(By.id("signin2")).isDisplayed());
 		
-		Assert.assertTrue(driver_4.findElement(By.id("signin2")).isDisplayed());
-		
-		driver_4.close();
-		// "This user already exist."
-		// "Sign up successful."
-		
+		driver.close();
 	}
 	
 	
@@ -193,34 +185,34 @@ public class AssessmentTests {
 		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_1 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
-		driver_1.get("https://www.demoblaze.com/index.html");
+		driver.get("https://www.demoblaze.com/index.html");
 		
 		//Find log in button and click it
-		driver_1.findElement(By.id("login2")).click();
+		driver.findElement(By.id("login2")).click();
 		
 		// Enter's user's information
-		driver_1.findElement(By.id("loginusername")).sendKeys(username);
-		driver_1.findElement(By.id("loginpassword")).sendKeys(password);
+		driver.findElement(By.id("loginusername")).sendKeys(username);
+		driver.findElement(By.id("loginpassword")).sendKeys(password);
 		
 		// Click Log in button to complete log in
-		driver_1.findElement(By.xpath("/html/body/div[3]/div/div/div[3]/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/div[3]/div/div/div[3]/button[2]")).click();
 		
 		//Add a wait here
-		WebDriverWait wait = new WebDriverWait(driver_1, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logout2")));
 		
 		//driver_1.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		//LogOut click
-		driver_1.findElement(By.id("logout2")).click();
+		driver.findElement(By.id("logout2")).click();
 		
-		driver_1.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
-		Assert.assertEquals(expected, driver_1.findElement(By.id("signin2")).getText());
-		driver_1.close();
+		Assert.assertEquals(expected, driver.findElement(By.id("signin2")).getText());
+		driver.close();
 	}
 	
 	/**
@@ -229,133 +221,148 @@ public class AssessmentTests {
 	 */
 	@Test
 	void add_Two_Items_to_Cart() {
-		//int addedItems = 0;
+		int itemsAreIn = 0;
+		List<String> expectedItems = new ArrayList<String>();
+		expectedItems.add("Samsung galaxy s6");
+		expectedItems.add("Nokia lumia 1520");
+		
 		// Set up Webdriver
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_5 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
+		driver.get("https://www.demoblaze.com/index.html");
 		
-		driver_5.get("https://www.demoblaze.com/index.html");
-		driver_5.manage().window().maximize();
-		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Add Samsung Galaxy s6 to cart
-		driver_5.findElement(By.linkText("Samsung galaxy s6")).click();
+		driver.findElement(By.linkText("Samsung galaxy s6")).click();
 		// In Galaxy s6 page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
-		// Creating a wait
-		WebDriverWait wait = new WebDriverWait(driver_5, Duration.ofSeconds(2));
+		// Creating an explicit wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
 		// Accept product added alert
-		Alert alert = driver_5.switchTo().alert();
+		Alert alert = driver.switchTo().alert();
 		alert.accept();
 			
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		// Click home button
-		driver_5.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
 
-
-		
-		//driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
 		// Add Nokia Lumia 1520 to cart
-		driver_5.findElement(By.linkText("Nokia lumia 1520")).click();
+		driver.findElement(By.linkText("Nokia lumia 1520")).click();
 		// In Nokia Lumia page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
-		alert = driver_5.switchTo().alert();
+		alert = driver.switchTo().alert();
 		alert.accept();
-		//Check that items are in cart
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Click cart button
-		driver_5.findElement(By.id("cartur")).click();
+		driver.findElement(By.id("cartur")).click();
+
 		
-		// Check that the items are in cart
-		Assert.assertEquals(driver_5.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr[1]/td[2]")).getText(), "Nokia lumia 1520");
-		Assert.assertEquals(driver_5.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr[2]/td[2]")).getText(), "Samsung galaxy s6");
-		driver_5.close();
+		List<WebElement> inCart = driver.findElements(By.className("success"));
+		
+		//Iterate and check that the specific items wanted are in the cart, store count into itemsAreIn
+		for(int i = 0; i < inCart.size(); i++) {
+			for(int j =0; j < expectedItems.size(); j++) {
+				if(inCart.get(i).getText().contains(expectedItems.get(j))) {
+					itemsAreIn++;
+				}
+			}
+		}
+		
+		Assert.assertEquals(inCart.size(), 2);
+		Assert.assertEquals(itemsAreIn, expectedItems.size());
+		driver.close();
 	}
+	
 
 	/**
-	 * 
+	 * Test failure 2/3, will sometimes assert that there are still elements in
+	 * cart though there are none by manual inspection and inspecting the website html
+	 * Type of error thrown by asserts: size does not match expected and list
+	 * not empty
 	 * 
 	 */
 	@Test
 	void delete_Two_Items_from_Cart() {
 
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_5 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
-		driver_5.get("https://www.demoblaze.com/index.html");
-		driver_5.manage().window().maximize();
+		driver.get("https://www.demoblaze.com/index.html");
+		//driver.manage().window().maximize();
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Add Samsung Galaxy s6 to cart
-		driver_5.findElement(By.linkText("Samsung galaxy s6")).click();
+		driver.findElement(By.linkText("Samsung galaxy s6")).click();
 		
 		// In Galaxy s6 page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
 		// Creating a wait
-		WebDriverWait wait = new WebDriverWait(driver_5, Duration.ofSeconds(2));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
 		// Accept product added alert
-		Alert alert = driver_5.switchTo().alert();
+		Alert alert = driver.switchTo().alert();
 		alert.accept();
 			
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		// Click home button
-		driver_5.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
 
 		// Add Nokia Lumia 1520 to cart
-		driver_5.findElement(By.linkText("Nokia lumia 1520")).click();
+		driver.findElement(By.linkText("Nokia lumia 1520")).click();
 		// In Nokia Lumia page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
-		alert = driver_5.switchTo().alert();
+		alert = driver.switchTo().alert();
 		alert.accept();
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Click cart button
-		driver_5.findElement(By.id("cartur")).click();
+		driver.findElement(By.id("cartur")).click();
 		
-
 		// Find delete button
-		driver_5.findElement(By.linkText("Delete")).click();
+		driver.findElement(By.cssSelector("tr.success:nth-child(1) > td:nth-child(4) > a:nth-child(1)")).click();
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
-		// Find second items delete button (had to use different By.)
-		driver_5.findElement(By.cssSelector("tr.success:nth-child(2) > td:nth-child(4) > a:nth-child(1)")).click();
+		// Find second item's delete button
+		driver.findElement(By.cssSelector("tr.success:nth-child(2) > td:nth-child(4) > a:nth-child(1)")).click();
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		
-		List<WebElement> empty = Collections.<WebElement>emptyList();
-		
-		//Probably not actually proving anything with the link text thing, considering these aren't link texts
-		Assert.assertEquals(driver_5.findElements(By.linkText("Samsung galaxy s6")), empty);
-		Assert.assertEquals(driver_5.findElements(By.linkText("Nokia lumia 1520")), empty);
-		driver_5.close();
+		// Returns the elements of class "success" in a List, if there are no elements it's empty
+		List<WebElement> currentCart = driver.findElements(By.className("success"));
+		//Check empty
+		Assert.assertTrue(currentCart.isEmpty());
+		//Check size
+		Assert.assertEquals(currentCart.size(), 0);
+		//Close window
+		driver.close();
 	}
 	
 	/**
@@ -363,81 +370,155 @@ public class AssessmentTests {
 	 * 
 	 */
 	@Test
+	void delete_One_Item_from_Cart_With_Two_Items() {
+		String itemToDelete = "Samsung galaxy s6";
+		int added = 0;
+
+		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		
+		driver.get("https://www.demoblaze.com/index.html");
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Add Nokia Lumia 1520 to cart
+		driver.findElement(By.linkText("Nokia lumia 1520")).click();
+		// In Nokia Lumia page I want to click add to cart button
+		driver.findElement(By.cssSelector("a.btn")).click();
+
+		// Creating a wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		//Press okay on alert "Product added"
+		alert.accept();
+		added++;
+			
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+		// Click home button
+		driver.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+
+		// Add Samsung Galaxy s6 to cart
+		driver.findElement(By.linkText("Samsung galaxy s6")).click();
+				
+		// In Galaxy s6 page I want to click add to cart button
+		driver.findElement(By.cssSelector("a.btn")).click();
+
+		// Waiting until alert pops up
+		wait.until(ExpectedConditions.alertIsPresent());
+		alert = driver.switchTo().alert();
+		//Press okay on alert "Product added"
+		alert.accept();
+		added++;
+		
+		//Wait for a period
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		
+		// Click cart button
+		driver.findElement(By.id("cartur")).click();
+		
+		//First item's text to check if it is the one I want to delete
+		String item1 = driver.findElement(By.cssSelector("tr.success:nth-child(1)")).getText();
+		
+		if(item1.contains(itemToDelete)) {
+			// Find delete button for first node in "success"
+			driver.findElement(By.cssSelector("tr.success:nth-child(1) > td:nth-child(4) > a:nth-child(1)")).click();
+			added--;
+		}else {
+			// Find delete button for second node in "success"
+			driver.findElement(By.cssSelector("tr.success:nth-child(2) > td:nth-child(4) > a:nth-child(1)")).click();
+			added--;
+		}
+		
+		//Wait for a period after deleting
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+		// Returns the elements of class "success", which is the cart's table of products, in a List. If there are no elements it's empty
+		List<WebElement> currentCart = driver.findElements(By.className("success"));
+		
+		//Check that the cart isn't empty
+		Assert.assertFalse(currentCart.isEmpty());
+		
+		//Check that the item I still want is in cart
+		Assert.assertTrue(currentCart.get(0).getText().contains("Nokia lumia 1520"));
+		
+		Assert.assertEquals(currentCart.size(), added);
+
+		//Check size
+		//Error occurs here because even after deleting an item from the cart I still get two elements in the cart, not one
+		Assert.assertEquals(currentCart.size(), 1);
+		
+		//Close window
+		driver.close();
+	}
+	
+	/**
+	 * Test fails 1/4 of the time, producing an "Expected 2 got 1" error
+	 * 
+	 */
+	@Test
 	void number_Of_Items_In_Cart() {
 		int numOfItems = 0;
 		int expected = 2;
-		// Make a method called getProducts
-		List<String> products = new ArrayList<String>();
-		products.add("Samsung galaxy s6");
-		products.add("Nokia lumia 1520");
-		products.add("Nexus 6");
-		products.add("Samsung galaxy s7");
-		products.add("Iphone 6 32gb");
-		products.add("Sony xperia z5");
-		products.add("HTC One M9");
-		products.add("Sony vaio i5");
-		products.add("Sony vaio i7");
-		products.add("Apple monitor 24");
-		products.add("MacBook air");
-		products.add("Dell i7 8gb");
-		products.add("2017 Dell 15.6 Inch");
-		products.add("ASUS Full HD");
-		products.add("MacBook Pro");
 		
 		System.setProperty("webdriver.gecko.driver", "C:\\browserdrivers\\geckodriver.exe");
-		FirefoxDriver driver_5 = new FirefoxDriver();
+		FirefoxDriver driver = new FirefoxDriver();
 		
-		driver_5.get("https://www.demoblaze.com/index.html");
-		driver_5.manage().window().maximize();
+		driver.get("https://www.demoblaze.com/index.html");
+		//driver.manage().window().maximize();
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Add Samsung Galaxy s6 to cart
-		driver_5.findElement(By.linkText("Samsung galaxy s6")).click();
+		driver.findElement(By.linkText("Samsung galaxy s6")).click();
 		
 		// In Galaxy s6 page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
 		// Creating a wait
-		WebDriverWait wait = new WebDriverWait(driver_5, Duration.ofSeconds(2));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
 		// Accept product added alert
-		Alert alert = driver_5.switchTo().alert();
+		Alert alert = driver.switchTo().alert();
 		alert.accept();
 			
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		// Click home button
-		driver_5.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
+		driver.findElement(By.cssSelector("li.nav-item:nth-child(1) > a:nth-child(1)")).click();
 
 		// Add Nokia Lumia 1520 to cart
-		driver_5.findElement(By.linkText("Nokia lumia 1520")).click();
+		driver.findElement(By.linkText("Nokia lumia 1520")).click();
 		// In Nokia Lumia page I want to click add to cart
-		driver_5.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
 		
 		// Waiting until alert pops up
 		wait.until(ExpectedConditions.alertIsPresent());
 		
-		alert = driver_5.switchTo().alert();
+		alert = driver.switchTo().alert();
 		alert.accept();
 		
-		driver_5.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		
 		// Click cart button
-		driver_5.findElement(By.id("cartur")).click();
+		driver.findElement(By.id("cartur")).click();
 		
-		List<WebElement> cart = driver_5.findElements(By.className("success"));
+		List<WebElement> cart = driver.findElements(By.className("success"));
 		
-		for(WebElement item : cart) {
-			if(products.contains(item.getText()));
-				numOfItems++;
-		}
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		numOfItems = cart.size();
 		
 		Assert.assertEquals(numOfItems, expected);
-		driver_5.close();
-	}
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
+		driver.close();
+	}
+	
 }

@@ -5,7 +5,9 @@
     <classes>
       <class name="assessment.AssessmentTests">
         <methods>
+          <include name="delete_One_Item_from_Cart_With_Two_Items"/>
           <include name="number_Of_Items_In_Cart"/>
+          <include name="delete_Two_Items_from_Cart"/>
         </methods>
       </class> <!-- assessment.AssessmentTests -->
     </classes>
